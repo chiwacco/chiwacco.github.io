@@ -55,17 +55,18 @@
         }
         nav ul {
             list-style: none;
-            padding: 0;
-            text-align: center;
-            background-color: #E6F7FF; /* 明るい水色のナビ背景 */
+            padding: 10px 5px; /* パディング調整 (例) */
+            /* text-align: center; は削除またはコメントアウト */
+            background-color: #E6F7FF; /* 現在の色 */
             margin: 0 0 30px 0;
             border-radius: 8px;
-            padding: 5px 0;
+            /* === Flexbox設定を追加 === */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px 10px; /* 行間 5px, 列間 10px の隙間 (調整可) */
         }
-        nav ul li {
-            display: inline;
-            margin-right: 5px;
-        }
+        
         nav a {
             text-decoration: none;
             color: #1E90FF; /* DodgerBlue のリンク */
@@ -76,7 +77,7 @@
             font-weight: 700;
         }
         nav a:hover {
-            background-color: #87CEEB; /* SkyBlue のホバー背景 */
+            background-color: #87CEEB;
             color: #fff;
         }
         h2 {
@@ -238,10 +239,8 @@
                         <ul><li>Admission: University-specific AO/Recommendation</li><li> Sample Course Grades: Programming 4.1, Computer Graphics 3.9, Artificial Intelligence 4.0</li></ul>
                     </li>
                     <li>
-                        <strong>High School: Niigata Minami high school(Apr 2018 - Mar 2021)
-                        <ul>
-                            <li>General Course</li>
-                        </ul>
+                        <strong>High School:</strong> Niigata Minami high school(Apr 2018 - Mar 2021)
+                        <ul><li>General Course</li></ul>
                     </li>
                 </ul>
             </section>
