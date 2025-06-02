@@ -110,57 +110,54 @@
             padding-left: 1.5em;
             position: relative;
         }
-        /* リスト項目の前のアイコン */
+        
+        ul li {
+            position: relative; /* ::before の position: absolute の基準 */
+            padding-left: 1.5em; 
+            margin-bottom: 8px;
+            list-style: none; 
+        }
+
         ul li::before {
-            content: '\f138'; /* Font Awesome の矢印アイコン (例) */
+            content: '\f138'; /* デフォルトの矢印アイコン (Arrow1 ) */
             font-family: 'Font Awesome 6 Free';
             font-weight: 900; /* Solid スタイル */
             color: #87CEFA; /* LightSkyBlue */
             position: absolute;
             left: 0;
-            top: 3px; /* 位置調整 */
+            top: 3px; /* 位置調整。フォントサイズや行の高さによって微調整 */
             font-size: 0.9em;
         }
-        /* 特定のリストのアイコンやスタイルを調整 */
-        #publications ul li::before,
-        #experience ul > li > ul > li::before,
-        #education ul > li > ul > li::before {
-             content: none;
+
+        #education > ul > li::before {
+            content: '\f138'; /* Arrow1 */
         }
-         #publications ul li, #experience ul > li > ul > li, #education ul > li > ul > li {
-             padding-left: 0;
-             list-style: disc;
-             margin-left: 20px;
-         }
-         /* 経験セクションのトップレベルリストにアイコン */
-         
-        /* 以下のブロックを削除またはコメントアウト */
 
-/* 経験セクションのトップレベルリストにアイコン */
-/*
-#experience > ul > li::before {
-    content: '\f0b1'; /* briefcase */
-/* color: #87CEFA; /* LightSkyBlue */
-/* }
-*/
+        #experience > ul > li::before {
+            content: '\f101'; /* Arrow2 (angle-double-right) */
+        }
 
-/* skillsセクションのトップレベルリストにアイコン */
-/*
-#skills > ul > li::before {
-    content: '\f101'; /* angle-double-right */
-/* color: #87CEFA;
-*/
-/* }
-*/
+        #skills > ul > li::before {
+            content: '\f138'; /* Arrow1 */
+        }
 
-/* interestsセクションのトップレベルリストにアイコン */
-/*
-#interests > ul > li::before {
-     content: '\f004'; /* heart */
-/* color: #87CEFA;
-*/
-/* }
-*/
+        #interests > ul > li::before {
+            content: '\f101'; /* Arrow2 (angle-double-right) */
+        }
+
+        #publications ul li::before,
+        #experience ul > li > ul > li::before, /* experience のネストされたリスト */
+        #education ul > li > ul > li::before { /* education のネストされたリスト */
+            content: none;
+        }
+
+        #publications ul li,
+        #experience ul > li > ul > li,
+        #education ul > li > ul > li {
+            padding-left: 0; /* アイコンがないので左パディングをリセット */
+            list-style: disc; /* 標準のdiscマーカーを表示 */
+            margin-left: 20px; /* 標準のリストのようにインデント */
+        }
         
 
         .contact-info ul li::before {
@@ -168,7 +165,6 @@
         }
         .contact-info ul li:nth-child(2)::before {
     font-family: "Font Awesome 5 Brands", "FontAwesome"; /* FA5 Brands。FA6なら "Font Awesome 6 Brands" */
-    /* font-weight: 400; */ /* Brandsは通常 normal (400) ですが、上記font-family指定で十分な場合が多い */
     content: '\f08c'; /* fa-linkedin-in または fa-linkedin (バージョンによる) */
     }
 
