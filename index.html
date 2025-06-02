@@ -150,6 +150,19 @@
         .contact-info ul li::before {
             content: ''; /* デフォルトアイコンを消す */
         }
+        .contact-info ul li:nth-child(2)::before {
+    font-family: "Font Awesome 5 Brands", "FontAwesome"; /* FA5 Brands。FA6なら "Font Awesome 6 Brands" */
+    /* font-weight: 400; */ /* Brandsは通常 normal (400) ですが、上記font-family指定で十分な場合が多い */
+    content: '\f08c'; /* fa-linkedin-in または fa-linkedin (バージョンによる) */
+    }
+
+        /* 3番目のアイコン: GitHub (Brandsスタイル) */
+        .contact-info ul li:nth-child(3)::before {
+            font-family: "Font Awesome 5 Brands", "FontAwesome"; /* FA5 Brands。FA6なら "Font Awesome 6 Brands" */
+            /* font-weight: 400; */ /* Brandsは通常 normal (400) */
+            content: '\f09b'; /* fa-github */
+        }
+
         /* 連絡先リストのアイコンを個別に設定 */
          .contact-info ul li:nth-child(1)::before { content: '\f0e0'; color: #87CEEB;} /* mail (SkyBlue) */
          .contact-info ul li:nth-child(2)::before { content: '\f08c'; color: #87CEEB;} /* linkedin */
@@ -268,11 +281,15 @@
                 <h2><i class="fas fa-briefcase"></i>Experience</h2>
                 <ul>
                     <li>
-                        <strong>Technical Staff:</strong> Artificial Intelligence Research Center (AIRC), National Institute of Advanced Industrial Science and Technology (AIST), Language and Information Research Team (May 2024 - Present)
+                        <strong>Technical Staff:</strong> Artificial Intelligence Research Center (AIRC), National Institute of Advanced Industrial Science and Technology (AIST), Language and Information Research Team (LANIRT) (May 2024 - Present)
                         <ul><li>Conducting research on NLP technologies, focusing on evaluating LLM's numerical time-series data understanding.</li></ul>
                     </li>
                     <li>
-                        <strong>Internship:</strong> Rakuten (Aug 2025)
+                        <strong>(Expected)Internship:</strong> CyberAgent
+                        <ul><li> </li></ul>
+                    </li>
+                    <li>
+                        <strong>(Expected)Internship:</strong> Rakuten (Sep 2025, a week)
                         <ul><li>Application Engineer</li></ul>
                     </li>
                     <li>
