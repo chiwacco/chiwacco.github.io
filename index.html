@@ -8,17 +8,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
+        /* ライトブルー基調にアレンジしたスタイル */
         body {
             font-family: 'M PLUS Rounded 1c', sans-serif;
             line-height: 1.7;
             margin: 0;
             padding: 0;
-            background-color: #F0F8FF; 
-            color: #334; 
+            background-color: #F0F8FF; /* AliceBlue 背景 */
+            color: #334; /* 少し濃いめの文字色 */
         }
         .container {
             max-width: 960px;
@@ -26,12 +25,12 @@
             padding: 30px;
             background-color: #fff;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 100, 150, 0.1); 
+            box-shadow: 0 4px 15px rgba(0, 100, 150, 0.1); /* 青系の影 */
         }
         header {
             text-align: center;
             padding-bottom: 1.5em;
-            border-bottom: 2px dashed #B0E0E6; 
+            border-bottom: 2px dashed #B0E0E6; /* PowderBlue の点線 */
             margin-bottom: 20px;
         }
         /* プロフィール写真のスタイル */
@@ -70,7 +69,7 @@
         
         nav a {
             text-decoration: none;
-            color: #005A9C; /* DodgerBlue のリンク */
+            color: #1E90FF; /* DodgerBlue のリンク */
             padding: 10px 18px;
             display: inline-block;
             border-radius: 5px;
@@ -110,85 +109,60 @@
             padding-left: 1.5em;
             position: relative;
         }
-        
-        ul li {
-            position: relative; /* ::before の position: absolute の基準 */
-            padding-left: 1.5em; 
-            margin-bottom: 8px;
-            list-style: none; 
-        }
-
+        /* リスト項目の前のアイコン */
         ul li::before {
-            content: '\f138'; /* デフォルトの矢印アイコン (Arrow1 ) */
+            content: '\f138'; /* Font Awesome の矢印アイコン (例) */
             font-family: 'Font Awesome 6 Free';
             font-weight: 900; /* Solid スタイル */
             color: #87CEFA; /* LightSkyBlue */
             position: absolute;
             left: 0;
-            top: 3px; /* 位置調整。フォントサイズや行の高さによって微調整 */
+            top: 3px; /* 位置調整 */
             font-size: 0.9em;
         }
-
-        #education > ul > li::before {
-            content: '\f138'; /* Arrow1 */
-        }
-
-        #experience > ul > li::before {
-            content: '\f101'; /* Arrow2 (angle-double-right) */
-        }
-
-        #skills > ul > li::before {
-            content: '\f101'; /* Arrow1 */
-        }
-
-        #interests > ul > li::before {
-            content: '\f101'; /* Arrow2 (angle-double-right) */
-        }
-
+        /* 特定のリストのアイコンやスタイルを調整 */
         #publications ul li::before,
-        #experience ul > li > ul > li::before, /* experience のネストされたリスト */
-        #education ul > li > ul > li::before { /* education のネストされたリスト */
-            content: none;
+        #experience ul > li > ul > li::before,
+        #education ul > li > ul > li::before {
+             content: none;
         }
+         #publications ul li, #experience ul > li > ul > li, #education ul > li > ul > li {
+             padding-left: 0;
+             list-style: disc;
+             margin-left: 20px;
+         }
+         /* 経験セクションのトップレベルリストにアイコン */
+         #experience > ul > li::before {
+             content: '\f0b1'; /* briefcase */
+             color: #87CEFA; /* LightSkyBlue */
+         }
+         #skills > ul > li::before {
+             content: '\f101'; /* code branch or similar */
+             color: #87CEFA;
+         }
+         #interests > ul > li::before {
+              content: '\f004'; /* heart */
+              color: #87CEFA;
+         }
 
-        #publications ul li,
-        #experience ul > li > ul > li,
-        #education ul > li > ul > li {
-            padding-left: 0; /* アイコンがないので左パディングをリセット */
-            list-style: disc; /* 標準のdiscマーカーを表示 */
-            margin-left: 20px; /* 標準のリストのようにインデント */
-        }
-        
 
         .contact-info ul li::before {
             content: ''; /* デフォルトアイコンを消す */
         }
-        .contact-info ul li:nth-child(2)::before {
-    font-family: "Font Awesome 5 Brands", "FontAwesome"; /* FA5 Brands。FA6なら "Font Awesome 6 Brands" */
-    content: '\f08c'; /* fa-linkedin-in または fa-linkedin (バージョンによる) */
-    }
-
-        /* 3番目のアイコン: GitHub (Brandsスタイル) */
-        .contact-info ul li:nth-child(3)::before {
-            font-family: "Font Awesome 5 Brands", "FontAwesome"; /* FA5 Brands。FA6なら "Font Awesome 6 Brands" */
-            /* font-weight: 400; */ /* Brandsは通常 normal (400) */
-            content: '\f09b'; /* fa-github */
-        }
-
         /* 連絡先リストのアイコンを個別に設定 */
          .contact-info ul li:nth-child(1)::before { content: '\f0e0'; color: #87CEEB;} /* mail (SkyBlue) */
          .contact-info ul li:nth-child(2)::before { content: '\f08c'; color: #87CEEB;} /* linkedin */
          .contact-info ul li:nth-child(3)::before { content: '\f09b'; color: #87CEEB;} /* github */
 
         .contact-info a, .project-link a, .publication-link a {
-            color: #005A9C; /* Cerulean Blue */
+            color: #007BA7; /* Cerulean Blue */
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
         }
         .contact-info a:hover, .project-link a:hover, .publication-link a:hover {
             text-decoration: underline;
-            color: #005A9C; /* DodgerBlue */
+            color: #1E90FF; /* DodgerBlue */
         }
         .publication-item {
             margin-bottom: 15px;
@@ -261,9 +235,6 @@
                         <ul><li>Admitted through recommendation.</li><li>Focus: NLP, ML (LLMs and time-series data interpretation).</li></ul>
                     </li>
                     <li>
-                        <strong>Visiting Researcher:</strong> German Research Center for Artificial Intelligence (DFKI), Germany (Oct 2025 - Dec 2025)
-                    </li>
-                    <li>
                         <strong>Bachelor of Information Science:</strong> Ochanomizu University (Apr 2021 - Mar 2025)
                         <ul><li>Admission: University-specific AO/Recommendation</li><li> Sample Course Grades: Programming 4.1, Computer Graphics 3.9, Artificial Intelligence 4.0</li></ul>
                     </li>
@@ -278,22 +249,22 @@
                  <h2><i class="fas fa-book-open"></i>Publications</h2>
                  <ul>
                     <li class="publication-item">
-                        Mizuki Arai, Tatsuya Ishigaki, Masayuki Kawarada, Yusuke Miyao, Hiroya Takamura and Ichiro Kobayashi. (2025).
-                        <a href="nan" target="_blank" class="publication-link">
-                            "Evaluating LLMs' Ability to Understand Numerical Time Series for Text Generation. (to appear)"
-                        </a>, , INLG2025, Hanoi, Vietnam.
+                        Arai, M., Ishigaki, T., Miyao, Y., Takamura, H., & Kobayashi, I. (2024, Nov).
+                        <a href="https://ipsj.ixsq.nii.ac.jp/records/241661" target="_blank" class="publication-link">
+                            "Examining Large Language Models' (LLMs') ability to interpret numerical data"
+                        </a>, IPSJ-NL Meeting, Nagoya.
                     </li>
                     <li class="publication-item">
                         Arai, M., Ishigaki, T., Miyao, Y., Takamura, H., & Kobayashi, I. (2025, Mar).
                         <a href="https://www.anlp.jp/proceedings/annual_meeting/2025/pdf_dir/P2-1.pdf" target="_blank" class="publication-link">
-                            "プロンプトの言語による数値時系列解釈能力の変化"
+                            "Differences in the Numerical Interpretation Ability of LLMs Depending on Prompt Language"
                         </a>, NLP2025, Nagasaki.
                     </li>
                     <li class="publication-item">
-                        Arai, M., Ishigaki, T., Miyao, Y., Takamura, H., & Kobayashi, I. (2024, Nov).
-                        <a href="https://ipsj.ixsq.nii.ac.jp/records/241661" target="_blank" class="publication-link">
-                            "大規模言語モデルの数値時系列解釈能力の検証"
-                        </a>, IPSJ-NL Meeting, Nagoya.
+                        Arai, M., Ishigaki, T., Kawarada, M. Miyao, Y., Takamura, H., & Kobayashi, I. (2025, Nov).
+                        <a href="https://aclanthology.org/2025.inlg-main.16/" target="_blank" class="publication-link">
+                            "Evaluating LLMs’ Ability to Understand Numerical Time Series for Text Generation"
+                        </a>, INLG2025, Hanoi, Vietnam.
                     </li>
                 </ul>
             </section>
@@ -302,24 +273,8 @@
                 <h2><i class="fas fa-briefcase"></i>Experience</h2>
                 <ul>
                     <li>
-                        <strong>Technical Staff:</strong> Artificial Intelligence Research Center (AIRC), National Institute of Advanced Industrial Science and Technology (AIST), Language and Information Research Team (LANIRT) (May 2024 - Present)
+                        <strong>Technical Staff:</strong> Artificial Intelligence Research Center (AIRC), National Institute of Advanced Industrial Science and Technology (AIST), Language and Information Research Team (May 2024 - Present)
                         <ul><li>Conducting research on NLP technologies, focusing on evaluating LLM's numerical time-series data understanding.</li></ul>
-                    </li>
-                    <li>
-                        <strong>Internship:</strong> CyberAgent (Aug 2025 - Sep 2025)
-                        <ul><li>ML/DS Engineer</li></ul>
-                        <ul><li>Presented my internship project results in a poster presentation titled "LLMを用いた広告文生成における「制作意図」の有効性検証" at the NLP若手の会シンポジウム (YANS 2025).</li></ul>
-                        <strong>
-                            <a href="https://developers.cyberagent.co.jp/blog/archives/59088/" target="_blank" class="project-link">Blog</a>:
-                        </strong>
-                    </li>
-                    <li>
-                        <strong>WorkShop:</strong> CTC(Aug 2025, 2days)
-                        <ul><li>Sler</li></ul>
-                    </li>
-                    <li>
-                        <strong>WorkShop:</strong> AWS Boot camp(Aug 2025, 4days)
-                        <ul><li>Professional Services/Solutions Architect</li></ul>
                     </li>
                     <li>
                         <strong>Internship:</strong> alt inc. (Feb 2025 - Apr 2025)
