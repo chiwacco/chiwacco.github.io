@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mizuki Arai - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* ライトブルー基調にアレンジしたスタイル */
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: #F0F8FF; /* AliceBlue 背景 */
+            color: #334; /* 少し濃いめの文字色 */
+        }
+        .container {
+            max-width: 960px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 100, 150, 0.1); /* 青系の影 */
+        }
+        header {
+            text-align: center;
+            padding-bottom: 1.5em;
+            border-bottom: 2px dashed #B0E0E6; /* PowderBlue の点線 */
+            margin-bottom: 20px;
+        }
+        /* プロフィール写真のスタイル */
+        header img.profile-pic {
+            width: 120px; /* 写真サイズ */
+            height: 120px;
+            border-radius: 50%; /* 円形にする */
+            object-fit: cover; /* 画像の比率を保ちつつトリミング */
+            margin: 15px auto 10px auto; /* 上下にマージン */
+            display: block;
+            border: 4px solid #ADD8E6; /* LightBlue の枠線 */
+            box-shadow: 0 2px 8px rgba(0, 100, 150, 0.15);
+        }
+        header h1 {
+            margin-bottom: 5px;
+            color: #4682B4; /* SteelBlue の見出し */
+            font-weight: 700;
+        }
+        header p {
+            color: #5F9EA0; /* CadetBlue のサブテキスト */
+            font-size: 1.1em;
+        }
+        nav ul {
+            list-style: none;
+            padding: 10px 5px; /* パディング調整 (例) */
+            /* text-align: center; は削除またはコメントアウト */
+            background-color: #E6F7FF; /* 現在の色 */
+            margin: 0 0 30px 0;
+            border-radius: 8px;
+            /* === Flexbox設定を追加 === */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px 10px; /* 行間 5px, 列間 10px の隙間 (調整可) */
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #1E90FF; /* DodgerBlue のリンク */
+            padding: 10px 18px;
+            display: inline-block;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 700;
+        }
+        nav a:hover {
+            background-color: #87CEEB;
+            color: #fff;
+        }
+        h2 {
+            color: #005A9C; /* 少し濃いブルーの見出し色 */
+            border-bottom: 3px dotted #AFEEEE; /* PaleTurquoise のドット線 */
+            padding-bottom: 8px;
+            margin-top: 40px;
+            font-size: 1.6em;
+            display: flex;
+            align-items: center;
+        }
+        h2 .fas {
+            margin-right: 10px;
+            font-size: 0.9em;
+            color: #87CEEB; /* SkyBlue のアイコン色 */
+        }
+
+        h3 {
+            margin-top: 25px;
+            margin-bottom: 8px;
+            color: #4682B4; /* SteelBlue の小見出し */
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
+            margin-bottom: 8px;
+            padding-left: 1.5em;
+            position: relative;
+        }
+        /* リスト項目の前のアイコン */
+        ul li::before {
+            content: '\f138'; /* Font Awesome の矢印アイコン (例) */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900; /* Solid スタイル */
+            color: #87CEFA; /* LightSkyBlue */
+            position: absolute;
+            left: 0;
+            top: 3px; /* 位置調整 */
+            font-size: 0.9em;
+        }
+        /* 特定のリストのアイコンやスタイルを調整 */
+        #publications ul li::before,
+        #experience ul > li > ul > li::before,
+        #education ul > li > ul > li::before {
+             content: none;
+        }
+         #publications ul li, #experience ul > li > ul > li, #education ul > li > ul > li {
+             padding-left: 0;
+             list-style: disc;
+             margin-left: 20px;
+         }
+         /* 経験セクションのトップレベルリストにアイコン */
+         #experience > ul > li::before {
+             content: '\f0b1'; /* briefcase */
+             color: #87CEFA; /* LightSkyBlue */
+         }
+         #skills > ul > li::before {
+             content: '\f101'; /* code branch or similar */
+             color: #87CEFA;
+         }
+         #interests > ul > li::before {
+              content: '\f004'; /* heart */
+              color: #87CEFA;
+         }
+
+
+        .contact-info ul li::before {
+            content: ''; /* デフォルトアイコンを消す */
+        }
+        /* 連絡先リストのアイコンを個別に設定 */
+         .contact-info ul li:nth-child(1)::before { content: '\f0e0'; color: #87CEEB;} /* mail (SkyBlue) */
+         .contact-info ul li:nth-child(2)::before { content: '\f08c'; color: #87CEEB;} /* linkedin */
+         .contact-info ul li:nth-child(3)::before { content: '\f09b'; color: #87CEEB;} /* github */
+
+        .contact-info a, .project-link a, .publication-link a {
+            color: #007BA7; /* Cerulean Blue */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .contact-info a:hover, .project-link a:hover, .publication-link a:hover {
+            text-decoration: underline;
+            color: #1E90FF; /* DodgerBlue */
+        }
+        .publication-item {
+            margin-bottom: 15px;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #aaa;
+            text-align: center;
+            padding: 1em 0;
+            border-top: 1px solid #E0F2F7; /* 薄い区切り線 */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="profile.JPG" alt="Mizuki Arai Profile Photo" class="profile-pic">
+            <h1>Mizuki Arai</h1>
+            <p>Information Science Student | NLP & ML</p>
+        </header>
+
+        <nav>
+            <ul>
+                 <li><a href="#about">About</a></li>
+                 <li><a href="#skills">Skills</a></li>
+                 <li><a href="#education">Education</a></li>
+                 <li><a href="#publications">Publications</a></li>
+                 <li><a href="#experience">Experience</a></li>
+                 <li><a href="#qualifications">Qualifications</a></li>
+                 <li><a href="#others">Others</a></li>
+                 <li><a href="#interests">Interests</a></li>
+                 <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="about">
+                <h2><i class="fas fa-user-circle"></i>About Me</h2>
+                <ul>
+                    <li>Current Status: 1st-year Master's student, Department of Information Science, Ochanomizu University</li>
+                    <li>Affiliation: Kobayashi Laboratory (Professor Ichiro Kobayashi)</li>
+                    <li>Research Area: data-to-text / Natural Language Processing (NLP) / Machine Learning (ML)</li>
+                    <li>Research Focus: Evaluating the ability of Large Language Models (LLMs) to interpret time-series numerical data</li>
+                </ul>
+            </section>
+
+            <section id="skills">
+                <h2><i class="fas fa-code"></i>Skills</h2>
+                <ul>
+                    <li><strong>Programming Languages:</strong> Python, C++, C, Java, HTML, CSS</li>
+                    <li><strong>NLP Libraries:</strong> spaCy, NLTK, Hugging Face Transformers, OpenAI API</li>
+                    <li><strong>Deep Learning Frameworks:</strong> PyTorch, TensorFlow</li>
+                    <li><strong>Server Administration:</strong> Member of the lab's server admin team.</li>
+                    <li><strong>Others:</strong> Data preprocessing, Model implementation, Research experience in NLP.</li>
+                 </ul>
+                 <h3><i class="fas fa-tools"></i>Other Skills</h3>
+                 <ul>
+                    <li><strong>Software:</strong> PowerPoint, Word, Excel, Photoshop </li>
+                    <li><strong>Tools:</strong> Unity, Blender</li>
+                </ul>
+            </section>
+
+            <section id="education">
+                <h2><i class="fas fa-graduation-cap"></i>Education</h2>
+                <ul>
+                    <li>
+                        <strong>Master of Information Science:</strong> Ochanomizu University (Apr 2025 - Present)
+                        <ul><li>Admitted through recommendation.</li><li>Focus: NLP, ML (LLMs and time-series data interpretation).</li></ul>
+                    </li>
+                    <li>
+                        <strong>Bachelor of Information Science:</strong> Ochanomizu University (Apr 2021 - Mar 2025)
+                        <ul><li>Admission: University-specific AO/Recommendation</li><li> Sample Course Grades: Programming 4.1, Computer Graphics 3.9, Artificial Intelligence 4.0</li></ul>
+                    </li>
+                    <li>
+                        <strong>High School:</strong> Niigata Minami high school(Apr 2018 - Mar 2021)
+                        <ul><li>General Course</li></ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="publications">
+                 <h2><i class="fas fa-book-open"></i>Publications</h2>
+                 <ul>
+                    <li class="publication-item">
+                        Arai, M., Ishigaki, T., Miyao, Y., Takamura, H., & Kobayashi, I. (2024, Nov).
+                        <a href="https://ipsj.ixsq.nii.ac.jp/records/241661" target="_blank" class="publication-link">
+                            "Examining Large Language Models' (LLMs') ability to interpret numerical data"
+                        </a>, IPSJ-NL Meeting, Nagoya.
+                    </li>
+                    <li class="publication-item">
+                        Arai, M., Ishigaki, T., Miyao, Y., Takamura, H., & Kobayashi, I. (2025, Mar).
+                        <a href="https://www.anlp.jp/proceedings/annual_meeting/2025/pdf_dir/P2-1.pdf" target="_blank" class="publication-link">
+                            "Differences in the Numerical Interpretation Ability of LLMs Depending on Prompt Language"
+                        </a>, NLP2025, Nagasaki.
+                    </li>
+                    <li class="publication-item">
+                        Arai, M., Ishigaki, T., Kawarada, M. Miyao, Y., Takamura, H., & Kobayashi, I. (2025, Nov).
+                        <a href="https://aclanthology.org/2025.inlg-main.16/" target="_blank" class="publication-link">
+                            "Evaluating LLMs’ Ability to Understand Numerical Time Series for Text Generation"
+                        </a>, INLG2025, Hanoi, Vietnam.
+                    </li>
+                </ul>
+            </section>
+
+            <section id="experience">
+                <h2><i class="fas fa-briefcase"></i>Experience</h2>
+                <ul>
+                    <li>
+                        <strong>Technical Staff:</strong> Artificial Intelligence Research Center (AIRC), National Institute of Advanced Industrial Science and Technology (AIST), Language and Information Research Team (May 2024 - Present)
+                        <ul><li>Conducting research on NLP technologies, focusing on evaluating LLM's numerical time-series data understanding.</li></ul>
+                    </li>
+                    <li>
+                        <strong>Internship:</strong> alt inc. (Feb 2025 - Apr 2025)
+                        <ul><li>Built datasets for instruction pretraining.</li></ul>
+                    </li>
+                    <li>
+                        <strong>JPHack (Nov 2024):</strong> Developed a sentiment analysis LINE bot analyzing user message tones. (Group project with members met on the day)
+                    </li>
+                    <li>
+                        <strong>Conference Volunteer:</strong> INLG 2024. Tokyo, Japan (Sep. 2024)
+                    </li>
+                    <li>
+                        <strong>Participant:</strong> Google STEP Educational Course (May 2024 - Jul 2024)
+                    </li>
+                    <li>
+                        <strong>Private tutor:</strong> (Oct 2022 - present)
+                        <ul><li>Taught high school-level mathematics and English.</li></ul>
+                    </li>
+                    <li>
+                        <strong>Tutor at a cram school offering both private and group lessons:</strong> (May 2021 - Aug 2022)
+                        <ul><li>Taught all subjects to elementary and junior high school students, and led group classes as a programming instructor.</li></ul>
+                    </li>
+                    <li>
+                        <strong>
+                            <a href="https://www.is.ocha.ac.jp/UTea-Virtual/contents.html" target="_blank" class="project-link">Utea Virtual Project (May-Nov 2021)</a>:
+                        </strong>
+                        Developed a virtual open campus space using Blender, Unity, and
+                        <a href="https://cluster.mu" target="_blank" class="project-link">Cluster</a>.
+                    </li>
+                </ul>
+            </section>
+
+            <section id="others">
+                <h2><i class="fas fa-star"></i>Others</h2>
+                 <ul>
+                    <li>Member, Alto Saxophone, the University of Tokyo Wind Ensemble (May 2022 - Mar 2025)</li>
+                 </ul>
+            </section>
+
+            <section id="interests">
+                 <h2><i class="fas fa-heart"></i>Interests</h2>
+                 <ul>
+                    <li>Natural Language Processing (NLP)</li>
+                    <li>Machine Learning (ML)</li>
+                    <li>Large Language Models (LLMs)</li>
+                    <li>Artificial Intelligence (AI)</li>
+                    <li>Engineering</li>
+                    <li>Software Development</li>
+                 </ul>
+             </section>
+
+            <section id="contact" class="contact-info">
+                <h2><i class="fas fa-envelope"></i>Contact</h2>
+                <ul>
+                    <li>Email: <a href="mailto:g2120503@is.ocha.ac.jp">g2120503@is.ocha.ac.jp</a></li>
+                    <li>LinkedIn: <a href="https://www.linkedin.com/in/mizuki-chiwa" target="_blank" rel="noopener noreferrer">www.linkedin.com/in/mizuki-chiwa</a></li>
+                    <li>GitHub: <a href="https://github.com/chiwacco" target="_blank" rel="noopener noreferrer">github.com/chiwacco</a></li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Mizuki Arai. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
